@@ -13,7 +13,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-brand-primary flex flex-col font-body">
+    <div className="min-h-screen relative overflow-x-hidden bg-brand-primary flex flex-col font-body">
       {/* Background SVG Waves */}
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
         <svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" className="w-full h-full">

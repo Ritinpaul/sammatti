@@ -26,14 +26,14 @@ export default function Sidebar() {
   const unreadNudges = nudges.filter((n) => !n.action_taken).length;
 
   return (
-    <aside className="w-20 h-full flex flex-col items-center py-6 flex-shrink-0 z-20">
+    <aside className="w-full h-16 md:w-20 md:h-full flex flex-row md:flex-col items-center justify-between md:justify-start px-2 md:px-0 py-2 md:py-6 flex-shrink-0 z-20">
       {/* Logo */}
-      <Link href="/" className="mb-10 text-white hover:text-white/80 transition-colors">
+      <Link href="/" className="hidden md:block mb-10 text-white hover:text-white/80 transition-colors">
         <Sparkles className="w-8 h-8" />
       </Link>
 
       {/* Navigation */}
-      <nav className="flex-1 flex flex-col items-center gap-4 w-full">
+      <nav className="flex-1 flex flex-row md:flex-col items-center justify-around md:justify-start gap-1 md:gap-4 w-full">
         {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
           return (
@@ -42,7 +42,7 @@ export default function Sidebar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={cn(
-                  "w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-300",
+                  "w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl transition-all duration-300",
                   isActive
                     ? "bg-brand-primary shadow-button text-white"
                     : "bg-white/10 text-white/60 hover:bg-white/20 hover:text-white"
@@ -67,7 +67,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Demo Persona Switcher (Hidden in pure icon mode, let's put it in Profile or keep a tiny version) */}
-      <div className="mt-auto mb-6 relative group w-12 h-12">
+      <div className="hidden md:block mt-auto mb-6 relative group w-12 h-12">
         <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white/60 cursor-pointer hover:bg-white/20">
            <Shield className="w-5 h-5" />
         </div>
@@ -86,7 +86,7 @@ export default function Sidebar() {
       </div>
 
       {/* Logout */}
-      <Link href="/" className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white text-brand-primary hover:bg-brand-gray-100 transition-colors">
+      <Link href="/" className="hidden md:flex w-12 h-12 items-center justify-center rounded-2xl bg-white text-brand-primary hover:bg-brand-gray-100 transition-colors">
         <LogOut className="w-5 h-5 ml-1" />
       </Link>
     </aside>

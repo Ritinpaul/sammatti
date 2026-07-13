@@ -53,7 +53,7 @@ export default function PortfolioPage() {
   return (
     <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <h1 className="font-heading font-bold text-3xl text-brand-dark">Portfolio</h1>
           <p className="text-brand-gray-500 mt-1">Unified view across all investments</p>
@@ -64,7 +64,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           { label: "Total Value", value: formatCurrency(total, true), sub: "Across 6 products" },
           { label: "Total Invested", value: formatCurrency(invested, true), sub: "Your contribution" },
@@ -83,7 +83,7 @@ export default function PortfolioPage() {
         {/* Allocation Pie */}
         <div className="card p-8">
           <h2 className="font-heading font-semibold text-brand-dark text-base mb-6">Asset Allocation</h2>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-48 h-48 flex-shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -139,7 +139,7 @@ export default function PortfolioPage() {
 
       {/* Product Table */}
       <div className="card overflow-hidden p-0">
-        <div className="px-8 py-5 border-b border-brand-gray-100 bg-brand-gray-50/50">
+        <div className="px-4 md:px-8 py-4 md:py-5 border-b border-brand-gray-100 bg-brand-gray-50/50">
           <h2 className="font-heading font-semibold text-brand-dark text-base">All Holdings</h2>
         </div>
         <div className="divide-y divide-brand-gray-100">
@@ -149,21 +149,21 @@ export default function PortfolioPage() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="flex items-center gap-5 px-8 py-5 hover:bg-brand-gray-50 transition-colors"
+              className="flex items-center gap-2 md:gap-5 px-4 md:px-8 py-4 md:py-5 hover:bg-brand-gray-50 transition-colors"
             >
-              <div className="w-10 h-10 rounded-xl bg-brand-gray-100 flex items-center justify-center text-xs font-bold text-brand-gray-500 flex-shrink-0">
+              <div className="hidden sm:flex w-10 h-10 rounded-xl bg-brand-gray-100 items-center justify-center text-xs font-bold text-brand-gray-500 flex-shrink-0">
                 {p.type}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-brand-dark truncate">{p.name}</p>
-                <p className="text-xs text-brand-gray-500 mt-0.5">Linked: {p.goal}</p>
+                <p className="text-xs md:text-sm font-semibold text-brand-dark truncate">{p.name}</p>
+                <p className="text-[10px] md:text-xs text-brand-gray-500 mt-0.5 truncate">Linked: {p.goal}</p>
               </div>
-              <div className="text-right">
+              <div className="text-right shrink-0 min-w-[60px] md:min-w-0">
                 <p className="text-sm font-bold text-brand-dark">{formatCurrency(p.value, true)}</p>
-                <p className="text-xs text-brand-gray-400 mt-0.5">invested {formatCurrency(p.invested, true)}</p>
+                <p className="text-[10px] md:text-xs text-brand-gray-400 mt-0.5 truncate">invested {formatCurrency(p.invested, true)}</p>
               </div>
-              <div className={`flex items-center gap-1 text-sm font-bold w-16 justify-end ${p.returns >= 0 ? "text-brand-green" : "text-red-500"}`}>
-                {p.returns >= 0 ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+              <div className={`flex items-center justify-end gap-0.5 md:gap-1 text-xs md:text-sm font-bold shrink-0 w-14 md:w-16 ${p.returns >= 0 ? "text-brand-green" : "text-red-500"}`}>
+                {p.returns >= 0 ? <TrendingUp className="w-3 h-3 md:w-4 md:h-4" /> : <TrendingDown className="w-3 h-3 md:w-4 md:h-4" />}
                 {formatPct(p.returns)}
               </div>
             </motion.div>

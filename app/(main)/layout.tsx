@@ -4,7 +4,7 @@ import Sidebar from "@/components/layout/Sidebar";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col-reverse md:flex-row h-screen bg-brand-primary p-2 md:p-4 font-body overflow-hidden">
+    <div className="flex flex-col-reverse md:flex-row h-[100dvh] bg-brand-primary p-2 md:p-4 font-body overflow-hidden">
       {/* Sidebar - detached and floating style */}
       <Sidebar />
 

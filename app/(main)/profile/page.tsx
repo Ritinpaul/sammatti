@@ -38,7 +38,7 @@ export default function ProfilePage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="card p-8 flex items-center gap-8"
+        className="card p-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left"
       >
         <div className="relative">
           <div className="w-24 h-24 rounded-full bg-brand-primary flex items-center justify-center text-4xl font-bold text-white shadow-button">
@@ -49,7 +49,7 @@ export default function ProfilePage() {
         <div className="flex-1">
           <h2 className="font-heading font-bold text-2xl text-brand-dark">{persona.name}</h2>
           <p className="text-brand-gray-500 font-medium">{persona.phone} · {persona.city}</p>
-          <div className="flex items-center gap-3 mt-3">
+          <div className="flex flex-col md:flex-row items-center gap-3 mt-3">
             <span className="nudge-chip text-brand-gray-500 bg-brand-gray-50 border border-brand-gray-200 px-3 py-1 rounded text-[10px] uppercase font-bold tracking-wider">{persona.tag}</span>
             <span className="text-xs text-brand-gray-400 font-medium">IDBI Customer since 2018</span>
           </div>
@@ -123,18 +123,18 @@ export default function ProfilePage() {
       </div>
 
       {/* Risk & Compliance */}
-      <div className="card p-8">
-        <h3 className="font-heading font-semibold text-brand-dark mb-6 text-lg">Risk Profile & Compliance</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="card p-5 md:p-8">
+        <h3 className="font-heading font-semibold text-brand-dark mb-4 md:mb-6 text-lg">Risk Profile & Compliance</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {[
             { label: "Risk Appetite", value: "Moderate" },
             { label: "KYC Status", value: "✅ Verified" },
             { label: "SEBI Category", value: "Retail" },
             { label: "AML Status", value: "✅ Clear" },
           ].map((s) => (
-            <div key={s.label} className="bg-brand-gray-50 border border-brand-gray-100 rounded-xl p-4">
-              <p className="text-xs font-semibold text-brand-gray-500 mb-1 uppercase tracking-wider">{s.label}</p>
-              <p className="text-base font-bold text-brand-dark">{s.value}</p>
+            <div key={s.label} className="bg-brand-gray-50 border border-brand-gray-100 rounded-xl p-3 md:p-4">
+              <p className="text-[10px] md:text-xs font-semibold text-brand-gray-500 mb-1 uppercase tracking-wider">{s.label}</p>
+              <p className="text-sm md:text-base font-bold text-brand-dark">{s.value}</p>
             </div>
           ))}
         </div>

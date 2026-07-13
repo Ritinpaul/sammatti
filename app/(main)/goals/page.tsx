@@ -25,7 +25,7 @@ export default function GoalsPage() {
   return (
     <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <h1 className="font-heading font-bold text-3xl text-brand-dark">Your Goals</h1>
           <p className="text-brand-gray-500 mt-1">{MOCK_GOALS.length} goals · 2 on track · 2 need attention</p>

@@ -29,7 +29,6 @@
   body {
     background-color: var(--color-brand-primary);
     color: var(--color-brand-dark);
-    overflow: hidden;
   }
 }
 

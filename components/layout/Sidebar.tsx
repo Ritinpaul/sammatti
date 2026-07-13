@@ -44,7 +44,7 @@ export default function Sidebar() {
                 className={cn(
                   "w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-2xl transition-all duration-300",
                   isActive
-                    ? "bg-brand-primary shadow-button text-white"
+                    ? "bg-white shadow-button text-brand-primary"
                     : "bg-white/10 text-white/60 hover:bg-white/20 hover:text-white"
                 )}
               >

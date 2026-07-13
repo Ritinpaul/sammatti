@@ -53,8 +53,8 @@ export default function DashboardPage() {
   return (
     <div className="p-6 md:p-8 space-y-8 max-w-[1400px] mx-auto min-h-full">
       {/* Top Navigation Bar */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="relative w-96">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+        <div className="relative w-full md:w-96">
           <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-brand-gray-400" />
           <input 
             type="text" 
@@ -76,19 +76,19 @@ export default function DashboardPage() {
       </div>
 
       {/* Title & Actions */}
-      <div className="flex items-center justify-between">
-        <h1 className="font-heading font-bold text-3xl text-brand-dark">Your Wealth Analysis</h1>
-        <div className="flex items-center gap-3">
-          <button className="bg-brand-primary text-white px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-button hover:bg-brand-primary/90 transition-colors">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <h1 className="font-heading font-bold text-2xl md:text-3xl text-brand-dark">Your Wealth Analysis</h1>
+        <div className="flex items-center gap-3 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
+          <button className="shrink-0 whitespace-nowrap bg-brand-primary text-white px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-button hover:bg-brand-primary/90 transition-colors">
             <Plus className="w-4 h-4" /> Add Widget
           </button>
-          <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card text-brand-dark hover:bg-brand-gray-50">
+          <button className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card text-brand-dark border border-brand-gray-100 hover:bg-brand-gray-50">
             <Moon className="w-4 h-4" />
           </button>
-          <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card text-brand-dark hover:bg-brand-gray-50">
+          <button className="shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-card text-brand-dark border border-brand-gray-100 hover:bg-brand-gray-50">
             <Maximize className="w-4 h-4" />
           </button>
-          <button className="bg-white text-brand-dark px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-card hover:bg-brand-gray-50">
+          <button className="shrink-0 whitespace-nowrap bg-white text-brand-dark border border-brand-gray-100 px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-card hover:bg-brand-gray-50">
              Filter
           </button>
         </div>
@@ -129,10 +129,10 @@ export default function DashboardPage() {
               <h3 className="font-semibold text-brand-dark">Portfolio Value</h3>
             </div>
             <div className="flex items-center gap-2">
-              <select className="bg-brand-gray-50 rounded-full px-3 py-1.5 text-xs font-medium outline-none">
+              <select className="bg-brand-gray-100 text-brand-dark border border-brand-gray-200 rounded-full px-3 py-1.5 text-xs font-medium outline-none">
                 <option>Week</option>
               </select>
-              <button className="w-8 h-8 rounded-full bg-brand-gray-50 flex items-center justify-center"><MoreVertical className="w-4 h-4" /></button>
+              <button className="w-8 h-8 rounded-full bg-brand-gray-100 border border-brand-gray-200 flex items-center justify-center text-brand-dark"><MoreVertical className="w-4 h-4" /></button>
             </div>
           </div>
           <div className="flex-1 w-full h-full relative -ml-4 mt-8">
@@ -165,7 +165,7 @@ export default function DashboardPage() {
             <button className="w-8 h-8 rounded-full bg-brand-gray-50 flex items-center justify-center"><MoreVertical className="w-4 h-4" /></button>
           </div>
           
-          <div className="flex gap-4 flex-1">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-4 flex-1">
             {/* Green Line Area */}
             <div className="flex-1 flex flex-col">
               <div className="flex items-center gap-1 text-brand-green text-xs font-bold mb-1">
@@ -191,7 +191,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Red Line Area */}
-            <div className="flex-1 flex flex-col border-l border-brand-gray-100 pl-4">
+            <div className="flex-1 flex flex-col border-t md:border-t-0 md:border-l border-brand-gray-100 pt-4 md:pt-0 md:pl-4">
               <div className="flex items-center gap-1 text-brand-orange text-xs font-bold mb-1">
                 <ArrowDownRight className="w-3 h-3" /> 8%
               </div>
@@ -226,8 +226,8 @@ export default function DashboardPage() {
                 <h3 className="font-semibold text-brand-dark">Recent Activity</h3>
              </div>
              <div className="flex items-center gap-2">
-               <button className="w-8 h-8 rounded-full bg-brand-gray-50 flex items-center justify-center text-brand-gray-500"><Search className="w-4 h-4" /></button>
-               <select className="bg-brand-gray-50 rounded-full px-3 py-1.5 text-xs font-medium outline-none">
+               <button className="w-8 h-8 rounded-full bg-brand-gray-100 border border-brand-gray-200 flex items-center justify-center text-brand-dark"><Search className="w-4 h-4" /></button>
+               <select className="bg-brand-gray-100 text-brand-dark border border-brand-gray-200 rounded-full px-3 py-1.5 text-xs font-medium outline-none">
                  <option>Week</option>
                </select>
              </div>
@@ -235,22 +235,22 @@ export default function DashboardPage() {
           
           <div className="space-y-4 flex-1 overflow-hidden">
             {RECENT_NUDGES.map((item, idx) => (
-              <div key={idx} className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-gray-100 flex items-center justify-center overflow-hidden">
+              <div key={idx} className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-gray-100 flex items-center justify-center overflow-hidden shrink-0">
                     <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.name}`} alt="" className="w-full h-full object-cover"/>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-brand-dark">{item.name}</p>
-                    <p className="text-xs text-brand-gray-500">{item.time}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs md:text-sm font-semibold text-brand-dark truncate">{item.name}</p>
+                    <p className="text-[10px] md:text-xs text-brand-gray-500 truncate">{item.time}</p>
                   </div>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-bold ${item.tagColor}`}>
+                <span className={`hidden md:block px-3 py-1 rounded-full text-xs font-bold shrink-0 ${item.tagColor}`}>
                   {item.tag}
                 </span>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-brand-dark w-16 text-right">{item.amount}</span>
-                  <button className="text-brand-gray-400 hover:text-brand-dark"><ExternalLink className="w-4 h-4" /></button>
+                <div className="flex items-center justify-end gap-1 md:gap-3 shrink-0">
+                  <span className="text-xs md:text-sm font-bold text-brand-dark md:w-16 text-right">{item.amount}</span>
+                  <button className="hidden md:flex text-brand-gray-400 hover:text-brand-dark"><ExternalLink className="w-4 h-4" /></button>
                   <button className="text-brand-gray-400 hover:text-brand-dark"><MoreVertical className="w-4 h-4" /></button>
                 </div>
               </div>

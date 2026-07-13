@@ -39,7 +39,7 @@ export default function NudgesPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {[
           { label: "Pending Actions", value: pendingCount, color: "text-brand-primary" },
           { label: "Completed", value: completedCount, color: "text-brand-green" },
@@ -53,7 +53,7 @@ export default function NudgesPage() {
       </div>
 
       {/* Filter */}
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex flex-wrap items-center gap-3 mb-8">
         <Filter className="w-4 h-4 text-brand-gray-400" />
         {FILTERS.map((f) => (
           <button
